@@ -1,0 +1,14 @@
+@import url("/css/style.css");
+@import url("/css/drop_box.css");
+@import url("/css/scroll.css");
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    width: 100%;
+    font-size: 100%;
+    font-family: GoogleSans;
+    background: #fff;
+}

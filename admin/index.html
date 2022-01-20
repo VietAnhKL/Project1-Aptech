@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div class="navbar">
+            <div class="logo">
+
+            </div>
+            <div>
+                <div class="navbar-item">
+                    <div class="navbar-icon"><i class="fas fa-utensils"></i></div>
+                    <div class="navbar-text">Meal</div>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-icon"><i class="fas fa-cookie"></i></div>
+                    <div class="navbar-text">Category</div>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-icon"><i class="fas fa-concierge-bell"></i></div>
+                    <div class="navbar-text">Service</div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="header">
+                <div class="navbar-icon"><i class="fas fa-align-justify"></i></div>
+                <div class="company-name">
+                    <div>Vinegar Food Restaurant</div>
+                </div>
+                <div class="name-admin">
+                    <div> Kiều Lê Việt Anh</div>
+                    <div class="navbar-icon"><i class="fas fa-angle-down"></i></div>
+
+                </div>
+            </div>
+
+
+            <div class="f-content">
+                <h1>Meal Manage for Restaurant</h1>
+                <button class='m-btn' type="button" onclick="openForm()">Add Meal</button>
+                <div class="table">
+                    <table width="100%">
+                        <tr>
+                            <th>Id</th>
+                            <th>Meal</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- form insert -->
+    <div id="formInsert" class="popup_insert">
+        <div class="popup_header">
+            <div class="popup-header-t1">
+                <div class="popup-header-title">Meal Information</div>
+            </div>
+            <div class="popup-header-close" onclick=closeForm()>
+                <div id="btnClosePopup" class="f-icon f-icon-close icon-24"><i class="fas fa-times"></i></div>
+            </div>
+        </div>
+        <div class="form_insert">
+            <form action="process_insert.php" method="post" enctype="multipart/form-data">
+                Meal
+                <input type="text" name="name">
+                <br> Image
+                <input type="file" name="photo">
+                <br> Price
+                <input type="number" name="price">
+                <br> Description
+                <textarea name="description"></textarea>
+                <br> Category
+                <select name="manufacturers_id">
+            <?php
+                foreach($result as $each) {
+            ?>     
+                <option value="<?php echo $each['id'] ?>">
+                    <?php echo $each['name'] ?>
+                </option>   
+            <?php
+                }
+            ?>
+                </select>
+
+            </form>
+        </div>
+        <div class="form_footer">
+            <button class="m-btn btn_form">Add</button>
+        </div>
+
+    </div>
+</body>
+<script>
+    function openForm() {
+        document.getElementById("formInsert").style.display = "block";
+    }
+
+
+    function closeForm() {
+        document.getElementById("formInsert").style.display = "none";
+    }
+</script>
+<!-- <script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script> -->
+
+</html>
